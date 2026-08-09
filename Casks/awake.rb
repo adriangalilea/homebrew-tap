@@ -29,8 +29,8 @@ cask "awake" do
   end
 
   zap trash: [
-    "~/Library/LaunchAgents/garden.untitled.awake.plist",
     "~/.local/state/awake",
+    "~/Library/LaunchAgents/garden.untitled.awake.plist",
     "~/Library/Logs/awake",
     "~/Library/Preferences/garden.untitled.awake.plist",
   ]
