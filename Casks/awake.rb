@@ -20,10 +20,16 @@ cask "awake" do
     system_command "#{appdir}/awake.app/Contents/MacOS/awake", args: ["agent", "install"]
   end
 
-  uninstall launchctl: "garden.untitled.awake",
-            delete:    "~/Library/LaunchAgents/garden.untitled.awake.plist"
+  # Teardown is the binary's job too, symmetric with the postflight above. NOT
+  # `uninstall launchctl:`: that stanza also attempts a root `rm` for
+  # /Library/LaunchAgents, so it prompts for a password and fails outright in any
+  # non-interactive upgrade. The agent is a user agent; removing it needs no root.
+  uninstall_preflight do
+    system_command "#{appdir}/awake.app/Contents/MacOS/awake", args: ["agent", "uninstall"]
+  end
 
   zap trash: [
+    "~/Library/LaunchAgents/garden.untitled.awake.plist",
     "~/.local/state/awake",
     "~/Library/Logs/awake",
     "~/Library/Preferences/garden.untitled.awake.plist",
