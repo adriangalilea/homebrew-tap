@@ -4,10 +4,10 @@ cask "awake" do
 
   url "https://github.com/adriangalilea/awake/releases/download/#{version}/awake-#{version}.dmg"
   name "awake"
-  desc "Keep a Mac awake, lid closed included"
+  desc "Prevents sleeping, including with the lid closed"
   homepage "https://github.com/adriangalilea/awake"
 
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
 
   app "awake.app"
   binary "#{appdir}/awake.app/Contents/MacOS/awake"
