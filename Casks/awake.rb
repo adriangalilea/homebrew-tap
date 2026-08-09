@@ -1,6 +1,6 @@
 cask "awake" do
-  version "0.1.2"
-  sha256 "d6e5e54f35f3f3aba0cc82dfccc9151e0082dde2daa7389e0e9bdc0549d175ec"
+  version "0.1.3"
+  sha256 "04ba7bd24232abf528ba520d2f3514449fad59dd7a4ea3544b60ad123fca61d3"
 
   url "https://github.com/adriangalilea/awake/releases/download/#{version}/awake-#{version}.dmg"
   name "awake"
