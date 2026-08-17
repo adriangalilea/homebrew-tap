@@ -1,11 +1,12 @@
 cask "awake" do
-  version "0.2.0"
-  sha256 "d71aceb8c6ed26e289790a262c39476338ce01d6b3bc1be0fd837b8f3c3d4027"
+  version "0.3.0"
+  sha256 "4a27799adbed2fc3cb93cedcfa358ea92c45ccffc6932f71ac69765e727a9c68"
 
-  url "https://github.com/adriangalilea/awake/releases/download/#{version}/awake-#{version}.dmg"
+  # The garden URL, not GitHub: it counts the download, then 302s to the CDN.
+  url "https://awake.untitled.garden/releases/awake-#{version}.dmg"
   name "awake"
   desc "Prevents sleeping, including with the lid closed"
-  homepage "https://github.com/adriangalilea/awake"
+  homepage "https://awake.untitled.garden"
 
   depends_on macos: :tahoe
 
