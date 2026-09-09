@@ -9,8 +9,13 @@ cask "vial" do
 
   # Lives here because homebrew-cask disabled its copy on 2026-09-01: the app
   # is not code-signed, so it fails their Gatekeeper check. Same upstream dmg,
-  # pinned by sha. Install with --no-quarantine or macOS refuses to open it.
+  # pinned by sha. Unsigned means macOS refuses to open it while quarantined,
+  # so the cask strips the flag itself: every install path lands runnable.
   app "Vial.app"
+
+  postflight do
+    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Vial.app"]
+  end
 
   zap trash: [
     "~/Library/Preferences/com.vial.Vial.plist",
