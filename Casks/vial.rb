@@ -11,10 +11,12 @@ cask "vial" do
   # is not code-signed, so it fails their Gatekeeper check. Same upstream dmg,
   # pinned by sha. Unsigned means macOS refuses to open it while quarantined,
   # so the cask strips the flag itself: every install path lands runnable.
+  depends_on :macos
+
   app "Vial.app"
 
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Vial.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Vial.app"]
   end
 
   zap trash: [
