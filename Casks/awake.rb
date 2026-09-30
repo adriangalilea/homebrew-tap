@@ -1,6 +1,6 @@
 cask "awake" do
-  version "0.8.3"
-  sha256 "bdbbfad4b5847af013450218e5f5a19b6765f2655699f960db1629102d362786"
+  version "0.9.0"
+  sha256 "949f1a9ed9e70dcd66c885377ab7f16b2c50876c3792395674690bd23de602a8"
 
   # The garden URL, not GitHub: it counts the download, then 302s to the CDN.
   url "https://awake.untitled.garden/releases/awake-#{version}.dmg"
