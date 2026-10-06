@@ -5,7 +5,7 @@ cask "chill" do
   # The garden URL, not GitHub: it counts the download, then 302s to the CDN.
   url "https://chill.untitled.garden/releases/chill-#{version}.dmg"
   name "chill"
-  desc "Fan control with Apple in charge by default"
+  desc "Fan control that keeps your Mac cool to the touch"
   homepage "https://chill.untitled.garden/"
 
   depends_on macos: :tahoe
@@ -16,8 +16,8 @@ cask "chill" do
 
   # No install or uninstall hooks, by design: cask steps run sandboxed, and
   # SMAppService refuses a sandboxed caller, so no step can register or
-  # unregister chilld. The app registers it from its popover; `chill daemon
-  # uninstall` hands the fans to Apple and unregisters it.
+  # unregister chilld. The app registers it from its popover; when the app is
+  # deleted, chilld hands the fans to Apple and removes itself and its files.
 
   zap trash: [
     "~/.local/state/chill",
@@ -31,11 +31,5 @@ cask "chill" do
     then approve it once under System Settings > General > Login Items &
     Extensions. chilld is the root daemon, the only thing that writes to the
     fans.
-
-    Before uninstalling, run:
-
-      chill daemon uninstall
-
-    It hands the fans back to Apple and removes the daemon's registration.
   EOS
 end
