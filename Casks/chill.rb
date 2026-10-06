@@ -5,11 +5,11 @@ cask "chill" do
   # The garden URL, not GitHub: it counts the download, then 302s to the CDN.
   url "https://chill.untitled.garden/releases/chill-#{version}.dmg"
   name "chill"
-  desc "Fan control that keeps your Mac cool to the touch"
+  desc "Fan curves that keep your laptop cool to the touch"
   homepage "https://chill.untitled.garden/"
 
-  depends_on macos: :tahoe
   depends_on arch: :arm64
+  depends_on macos: :tahoe
 
   app "chill.app"
   binary "#{appdir}/chill.app/Contents/MacOS/chill"
@@ -20,10 +20,10 @@ cask "chill" do
   # deleted, chilld hands the fans to Apple and removes itself and its files.
 
   zap trash: [
-    "~/.local/state/chill",
-    "~/Library/Preferences/garden.untitled.chill.plist",
     "/Library/Application Support/chill",
     "/Library/Logs/chill",
+    "~/.local/state/chill",
+    "~/Library/Preferences/garden.untitled.chill.plist",
   ]
 
   caveats <<~EOS
