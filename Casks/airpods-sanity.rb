@@ -7,9 +7,9 @@ cask "airpods-sanity" do
   desc "Keeps AirPods on high-quality output by holding the input device"
   homepage "https://github.com/Gaulomatic/AirPodsSanity"
 
+  depends_on :macos
+
   app "AirPods Sanity.app"
 
-  zap trash: [
-    "~/Library/Preferences/de.gaulomatic.AirPodsSanity.plist",
-  ]
+  zap trash: "~/Library/Preferences/de.gaulomatic.AirPodsSanity.plist"
 end

@@ -12,8 +12,8 @@ class Trash < Formula
     sha256 cellar: :any_skip_relocation, arm64_tahoe: "35646a7e00a409277637be1925440534d43f28a527cda72180bbec4ba785bce8"
   end
 
-  depends_on :macos
   depends_on xcode: ["16.0", :build]
+  depends_on :macos
 
   def install
     system "swift", "build", "-c", "release", "--disable-sandbox"
