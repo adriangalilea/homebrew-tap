@@ -1,6 +1,6 @@
 cask "chill" do
-  version "0.1.2"
-  sha256 "b4f8c63b1522679ed2546843e1c2c9485be2af9ccd2a3423ffd315f5d3feddc2"
+  version "0.1.3"
+  sha256 "7f1eac5088e41e5bb678d391f180b1bd75cf6f9f3aa0ac9d0f0d86af5ec7b84a"
 
   # The garden URL, not GitHub: it counts the download, then 302s to the CDN.
   url "https://chill.untitled.garden/releases/chill-#{version}.dmg"
