@@ -1,14 +1,18 @@
 class Trash < Formula
   desc "macOS Trash CLI with real Put Back (list/restore/empty, origin xattr)"
   homepage "https://github.com/adriangalilea/trash"
-  url "https://github.com/adriangalilea/trash/archive/refs/tags/1.2.0.tar.gz"
+  # Downloads go through trash.untitled.garden, which counts each one (a counter,
+  # nothing about who) and redirects to the same file on GitHub, so the checksums
+  # are GitHub's own.
+  url "https://trash.untitled.garden/releases/github/1.2.0/source.tar.gz"
+  version "1.2.0"
   sha256 "365af7ada823e66152142978062010963c88b295380e93317c1f8fe218658ec8"
   license "MIT"
 
   # The bottle is the point: pouring needs NO toolchain. Source build (and
   # its Xcode requirement) is the fallback for platforms without one.
   bottle do
-    root_url "https://github.com/adriangalilea/trash/releases/download/1.2.0"
+    root_url "https://trash.untitled.garden/releases/github/1.2.0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe: "35646a7e00a409277637be1925440534d43f28a527cda72180bbec4ba785bce8"
   end
 
