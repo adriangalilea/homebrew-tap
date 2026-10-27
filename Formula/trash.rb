@@ -9,6 +9,11 @@ class Trash < Formula
   sha256 "365af7ada823e66152142978062010963c88b295380e93317c1f8fe218658ec8"
   license "MIT"
 
+  # trash became an app (trash.app holds the Full Disk Access reading the Trash
+  # needs), so it ships as a cask; this formula stays at 1.2.0 only to point
+  # the way. The cask's `trash` and this one can't be linked together.
+  deprecate! date: "2026-10-27", because: "is now a cask", replacement_cask: "adriangalilea/tap/trash"
+
   # The bottle is the point: pouring needs NO toolchain. Source build (and
   # its Xcode requirement) is the fallback for platforms without one.
   bottle do
