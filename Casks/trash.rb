@@ -1,6 +1,6 @@
 cask "trash" do
-  version "1.3.2"
-  sha256 "9b65058cd10e1bff37c6a8bc70db40cb2a8c24814134ab6a5053aa6aa0266217"
+  version "1.3.3"
+  sha256 "d574a952b7b8ca1bcd8c67f950d5b0ad717391fb8deb6bb097d0104b1d8d0bbb"
 
   # The garden URL, not GitHub: it counts the download, then 302s to the CDN.
   url "https://trash.untitled.garden/releases/trash-#{version}.dmg"
